@@ -1,33 +1,65 @@
 <?php
-// Allow requests from the frontend
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json");
+// Very simple debugging output.
+// In Produktion → Passwort nicht im Klartext zurücksenden,
+// sondern z.B. mit password_hash() abspeichern und gar nicht echo‑n!
 
-// Read the JSON input
-$data = json_decode(file_get_contents("php://input"), true);
+// immer wenn wir etwas mit der db machen, 
+// brauchen wir require once
+require_once('../system/config.php');
 
-// Simple validation
-if (!isset($data['username'], $data['email'], $data['password'])) {
-    echo json_encode(["success" => false, "message" => "Missing fields"]);
+header('Content-Type: text/plain; charset=UTF-8');
+
+// ► Daten aus $_POST abgreifen (kommen dort an, weil wir FormData benutzen)
+$username = $_POST['username'] ?? '';
+$email    = $_POST['email']    ?? '';
+$password = $_POST['password'] ?? '';
+
+// check if fields are filled
+if (empty($username) || empty($email) || empty($password)) {
+    echo "Bitte fülle alle Felder aus";
     exit;
 }
 
-$username = $data['username'];
-$email = $data['email'];
-$password = password_hash($data['password'], PASSWORD_DEFAULT); // Securely hash password
+// check if password is at least 8 characters long
+if (strlen($password) < 8) {
+    echo "Passwort muss mindestens 8 Zeichen lang sein";
+    exit;
+}
 
-// OPTIONAL: Insert into database (you must configure this part)
-$host = 'localhost';
-$db   = 'your_database';
-$user = 'your_db_user';
-$pass = 'your_db_password';
+$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8mb4", $user, $pass);
-    $stmt = $pdo->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
-    $stmt->execute([$username, $email, $password]);
+// check if user already exists
+$stmt = $pdo->prepare("SELECT * FROM benutzer WHERE email = :email OR username = :username");
+$stmt->execute([
+    ':email' => $email,
+    ':username' => $username
+]);
+$user = $stmt->fetch();
 
-    echo json_encode(["success" => true, "message" => "User registered successfully"]);
-} catch (PDOException $e) {
-    echo json_encode(["success" => false, "message" => "Database error: " . $e->getMessage()]);
+if ($user) {
+
+    echo "Username oder E-Mail bereits vergeben";
+    exit;
+
+} else {
+
+    // insert new user
+    $insert = $pdo->prepare("INSERT INTO benutzer (email, username, password) VALUES (:email, :user, :pass)");
+    $insert->execute([
+    ':email' => $email,
+    ':pass'  => $hashedPassword,
+    ':user' => $username
+    ]);
+
+    if ($insert) {
+        echo "Registrierung erfolgreich";
+    } else {
+        echo "Registrierung fehlgeschlagen";
+    }
+
+    // ► Ausgeben – nur zum Test!
+    // echo "PHP meldet, Daten erfolgreich empfangen.";
+    // echo "Username: {$username}\n";
+    // echo "E-Mail:   {$email}\n";
+    // echo "Passwort: {$hashedPassword}\n";
 }

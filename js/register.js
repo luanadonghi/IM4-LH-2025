@@ -1,28 +1,43 @@
-console.log("hello from register.js");
+console.log("Hello from Register JS!");
 
-document.getElementById("registerForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
+document
+  .getElementById("registerForm")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault(); // Formular‑Reload verhindern
 
-    let username = document.querySelector("#username").value;
-    let email = document.querySelector("#email").value;
-    let password = document.querySelector("#password").value;
+    // ► Eingabewerte aus den Feldern holen
+    const username = document.querySelector("#username").value.trim();
+    const email = document.querySelector("#email").value.trim();
+    const password = document.querySelector("#password").value;
 
-    console.log(username, email, password);
-
-    try {
-        const response = await fetch("api/register.php", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ username, email, password })
-        });
-
-        const result = await response.json();
-        console.log(result);
-        alert(result.message);
-    } catch (err) {
-        console.error("Error:", err);
-        alert("Something went wrong!");
+    // validate if all fields are filled
+    if (!username || !email || !password) {
+      alert("Bitte fülle alle Felder aus");
+      return;
     }
-});
+
+    // check passwords requirements
+    if (password.length < 8) {
+      alert("Passwort muss mindestens 8 Zeichen lang sein");
+      return;
+    }
+
+    // FormData füllt PHPs $_POST automatisch
+    const formData = new FormData();
+    formData.append("username", username);
+    formData.append("email", email);
+    formData.append("password", password);
+
+    // Fetch
+    try {
+      const res = await fetch("api/register.php", {
+        method: "POST",
+        body: formData,
+      });
+      const reply = await res.text(); // register.php schickt nur Klartext zurück
+      console.log("Antwort vom Server:\n" + reply);
+      alert(reply);
+    } catch (err) {
+      console.error("Fehler beim Senden:", err);
+    }
+  });
