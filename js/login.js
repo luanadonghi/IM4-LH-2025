@@ -17,7 +17,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
 
   // Fetch
   try {
-    const res = await fetch("api/login.php", {
+    const res = await fetch("/api/login.php", {
       method: "POST",
       body: formData,
     });
