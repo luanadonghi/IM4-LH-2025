@@ -1,0 +1,66 @@
+
+/* Body-Stil */
+body {
+  font-family: 'Ranchers', cursive;
+  background-size: 100%;
+  background-color: #FFFDF5;
+  margin: 0;
+  padding: 2rem;
+}
+
+/* Titel "OKBOOMER!" */
+h1 {
+  font-family: 'Ranchers', cursive;
+  font-size: 5rem;
+  color: #ED163C;
+  margin: 1rem 0 0.5rem 0;
+}
+
+/* Untertitel */
+.subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: #ED163C;
+  margin-bottom: 2rem;
+}
+
+/* Beschreibung */
+.description {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #ED163C;
+  margin-bottom: 2rem;
+}
+
+/* Suchleiste */
+.search-bar {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  background-color: #ED163C;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  width: fit-content;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  background: none;
+  color: white;
+  margin-left: 0.5rem;
+}
+
+.search-bar input::placeholder {
+  color: white;
+}
+
+.search-bar .icon {
+  color: white;
+  font-size: 1.25rem;
+  margin-right: 0.5rem;
+}
