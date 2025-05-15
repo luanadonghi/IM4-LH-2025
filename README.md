@@ -1,6 +1,7 @@
 # IM4-LH-2025
 
 ## Prerequisites
+- homebrew (https://brew.sh)
 - php (Installation: brew install php)
 - mariadb (Installation: brew install mariadb)
 
@@ -8,7 +9,11 @@
 brew services start mariadb
 brew services stop mariadb
 
-## MariaDB credentials (local) Hanna only
+## Setting up root user on mariadb
+- sudo mysql -u root
+- ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';
+
+## MariaDB credentials (local)
 username: root
 password: root
  
