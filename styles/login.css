@@ -1,0 +1,55 @@
+.big-title {
+  font-size: 75px;
+  font-family: "Ranchers";
+  color: rgba(237, 22, 60, 1);
+  margin-bottom: 50px;
+  font-weight: 400;
+}
+
+.eingabefeld {
+  margin-bottom: 50px;
+  width: 700px;
+}
+
+.eingabefeld label {
+  font-size: 36px;
+  font-weight: 600;
+  color: rgba(237, 22, 60, 1);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.eingabefeld input {
+  background-color: rgba(237, 22, 60, 0.15);
+  border: none;
+  height: 60px;
+  font-size: 26px;
+  width: 100%;
+  color: rgba(237, 22, 60, 1);
+  padding: 10px 20px;
+  border-radius: 12px;
+}
+
+.noch-kein-konto {
+  font-size: 20px;
+  color: rgba(237, 22, 60, 1);
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.login-container {
+  position: relative;
+}
+
+.login-illustration {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.fehler {
+  font-size: 20px;
+  color: rgba(237, 22, 60, 1);
+  font-weight: 600;
+  margin-bottom: 30px;
+}
