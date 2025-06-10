@@ -1,0 +1,66 @@
+.home {
+    position: relative;
+    margin-top: 100px;
+  }
+  
+  .very-big-title {
+    font-size: 110px;
+    font-family: "Ranchers";
+    color: rgba(237, 22, 60, 1);
+    margin-bottom: 10px;
+    font-weight: 400;
+  }
+  
+  .subtitle {
+    font-size: 26px;
+    font-weight: 600;
+    color: rgba(237, 22, 60, 1);
+    width: 600px;
+    margin-bottom: 100px;
+  }
+  
+  .subtitle2 {
+    font-size: 26px;
+    font-weight: 600;
+    color: rgba(237, 22, 60, 1);
+    margin-bottom: 60px;
+  }
+  
+  .homepage-illustration {
+    position: absolute;
+    right: 100px;
+    top: 0;
+  }
+  
+  .search-bar-container {
+    position: relative;
+  }
+  
+  .search-bar {
+    background-color: rgba(237, 22, 60, 1);
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    border-radius: 12px;
+  }
+  
+  .search-bar input {
+    border: none;
+    font-size: 26px;
+    color: white;
+    width: 700px;
+    padding: 10px 20px;
+    background: none;
+    padding-left: 68px;
+  }
+  
+  .search-bar img {
+    position: absolute;
+    pointer-events: none;
+    left: 12px;
+  }
+  
+  .search-bar input::placeholder {
+    color: white;
+  }
+  
