@@ -1,33 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Jetzt Registrieren für unsere super App!</h1>
+<html>
 
-    <form id="registerForm" action="">
-      <label for="email"> Email:</label>
-      <input id="email" type="email" />
-      <br />
-      <br />
+<head>
+    <title>Registrieren</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/styles/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ranchers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
 
-      <label for="username"> Username:</label>
-      <input id="username" type="text" />
-      <br />
-      <br />
+<body>
+    <div class="header">
+        <a href="/">
+            <img src="/images/logo.png" width="197" height="58">
+        </a>
+        <a href="/login.php">
+            <img src="/images/account-icon.svg" width="32" height="32">
+        </a>
+    </div>
+    <div class="container login-container">
+        <h1 class="big-title">PROFIL ERSTELLEN</h1>
+        <form style="margin-bottom: 50px;">
+            <div class="eingabefeld">
+                <label for="firstname">Vorname</label>
+                <input type="text" name="firstname" required>
+            </div>
+            <div class="eingabefeld">
+                <label for="email">E-Mail Adresse</label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="eingabefeld">
+                <label for="passwort">Passwort</label>
+                <input type="password" name="passwort" minlength="8" required>
+            </div>
+            <button class="button" type="submit">Los geht's</button>
+            <div class="fehler">Es ist ein Fehler aufgetreten. Nur anzeigen wenn ein Fehler passiert</div>
+        </form>
+        <img src="/images/registrieren.png" height="491" width="491" class="login-illustration">
+    </div>
+</body>
 
-      <label for="password">Passwort:</label>
-      <input id="password" type="password" />
-      <br />
-      <br />
-
-      <button type="submit">Registrieren!</button>
-
-      <p>Bereits registriert? Jetzt <a href="login.html"> einloggen </a></p>
-    </form>
-
-    <script src="js/register.js"></script>
-  </body>
+</html>
