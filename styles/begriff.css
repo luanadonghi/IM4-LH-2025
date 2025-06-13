@@ -1,0 +1,66 @@
+.titel-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  
+  .big-title {
+    font-size: 64px;
+    font-family: "Ranchers";
+    color: rgba(237, 22, 60, 1);
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  
+  .favorite-button {
+    background-color: transparent;
+    border: none;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  
+  .audio-button {
+    background-color: transparent;
+    border: none;
+    margin-left: 10px;
+  }
+  
+  .big-title button {
+    background-color: transparent;
+    border: none;
+  }
+  
+  .title {
+    font-size: 36px;
+    font-weight: 600;
+    color: rgba(237, 22, 60, 1);
+    margin-bottom: 10px;
+  }
+  
+  .box {
+    border-radius: 12px;
+    padding: 30px;
+    background: rgba(237, 22, 60, 0.15);
+    color: rgba(237, 22, 60, 1);
+    width: 760px;
+    font-size: 24px;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+  }
+  
+  .begriff-container {
+    position: relative;
+  }
+  
+  .illustration {
+    position: absolute;
+    right: 0;
+    top: 200px;
+  }
+  
+  .gap-mit-button {
+    display: flex;
+    justify-content: end;
+    width: 760px;
+  }
+  

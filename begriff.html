@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <title>Begriff</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/styles/begriff.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ranchers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="header">
+        <a href="/">
+            <img src="/images/logo.png" width="197" height="58">
+        </a>
+        <a href="/login.php">
+            <img src="/images/account-icon.svg" width="32" height="32">
+        </a>
+    </div>
+    <div class="container begriff-container">
+        <div class="titel-container">
+            <div class="big-title">Skibidi Toilet</div>
+            <form method="POST" action="/begriff.php">
+                <input type="hidden" name="id" value="<?php echo $phrase['id']; ?>">
+                <button class="favorite-button" type="submit">
+                    <img src="/images/Herzli.svg" width="53" height="53">
+                </button>
+            </form>
+            <button class="audio-button" id="audioBtn" type="button" disabled>
+                <img src="/images/ear.svg" width="53" height="53">
+            </button>
+        </div>
+        <div class="title">Bedeutung</div>
+        <div class="box">Das ist die Erklärung</div>
+        <div class="title">Beispiel</div>
+        <div class="box">Das ist das Beispiel für den Begriff</div>
+        <img class="illustration" src="/images/begriff.png" width="491" height="491">
+        <div class="gap-mit-button">
+            <a href="/" class="button">Anderen Ausdruck suchen</a>
+        </div>
+    </div>
+</body>
+
+</html>
