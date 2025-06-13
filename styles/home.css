@@ -15,7 +15,7 @@
     font-size: 26px;
     font-weight: 600;
     color: rgba(237, 22, 60, 1);
-    width: 600px;
+    max-width: 600px;
     margin-bottom: 100px;
   }
   
@@ -31,6 +31,15 @@
     right: 100px;
     top: 0;
   }
+
+  .homepage-illustration img {
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .homepage-illustration img {
+    max-width: 100%;
+  }
   
   .search-bar-container {
     position: relative;
@@ -42,13 +51,15 @@
     position: relative;
     align-items: center;
     border-radius: 12px;
+    max-width: 700px;
+    width: 100%;
   }
   
   .search-bar input {
     border: none;
     font-size: 26px;
     color: white;
-    width: 700px;
+    width: 100%;
     padding: 10px 20px;
     background: none;
     padding-left: 68px;
@@ -63,71 +74,34 @@
   .search-bar input::placeholder {
     color: white;
   }
-  
-  @media (max-width: 768px) {
-    .very-big-title {
-      font-size: 12vw;
-      margin-top: -80px;
-      margin-left: 15px;
-    }
-  
-    .subtitle,
-    .subtitle2 {
-      font-size: 4.5vw;
-      padding: 0 1rem;
-    }
-  
-    .search-bar {
-      flex-direction: row;
-      padding-left: 40px;
-      width: 500px;
-    }
-  
-    .search-bar input {
-      font-size: 1rem;
-      padding-left: 40px;
-    }
-  
-    .search-bar img {
-      width: 20px;
-      height: 20px;
-      left: 10px;
+
+  @media screen and (max-width: 1160px) {
+    .home {
+      margin-top: 0px;
     }
 
     .homepage-illustration {
-      position: relative;
-      right: auto;
-      top: auto;
-      display: block;
-      margin: 2rem auto;
+      /* display: none; */
     }
-  }
-  
-  @media (max-width: 1150px) {
-    .very-big-title {
-      font-size: 14vw;
-      margin-top: -60px;
 
+    .very-big-title {
+      font-size: 72px;
     }
-  
+
     .subtitle,
     .subtitle2 {
-      font-size: 4vw;
+      font-size: 24px;
     }
-  
+
+    .subtitle {
+      margin-bottom: 32px;
+    }
+
     .search-bar {
-      border-radius: 10px;
-    }
-  
-    .search-bar input {
-      font-size: 0.9rem;
+      max-width: 100%;
     }
 
     .homepage-illustration {
-      position: relative;
-      right: auto;
-      top: auto;
-      display: block;
-      margin: 2rem auto;
-  }
+      top: 480px;
+    }
   }
