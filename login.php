@@ -1,3 +1,29 @@
+<?php
+require_once 'system/database.php';
+require_once 'system/auth.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $stmt = $db->prepare('SELECT * FROM users WHERE email = :email');
+    $stmt->execute([':email' => $email]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    if ($user && password_verify($password, $user['password'])) {
+        $_SESSION['user'] = $user;
+        header('Location: /profil.php');
+        exit;
+    } else {
+        $error = "Falsches Passwort oder E-Mail.";
+    }
+}
+
+if ($eingeloggt) {
+    header('Location: /profil.php');
+    exit;
+}
+
+?>
+
 <html>
 
 <head>
@@ -21,7 +47,7 @@
     </div>
     <div class="container login-container">
         <h1 class="big-title">EINLOGGEN</h1>
-        <form style="margin-bottom: 50px;">
+        <form style="margin-bottom: 50px;" method="POST" action="/login.php">
             <div class="eingabefeld">
                 <label for="email">E-Mail</label>
                 <input type="email" name="email" required>
@@ -31,7 +57,7 @@
                 <input type="password" name="password" required>
             </div>
             <button class="button" type="submit">Einloggen</button>
-            <div class="fehler">Hier kommt ein Fehler hin</div>
+            <div class="fehler"><?php if (isset($error)) echo $error; ?></div>
         </form>
         <div class="noch-kein-konto">Noch kein Konto? Kein Problem! Registriere dich jetzt.</div>
         <a class="button" href="/register.php">Profil erstellen</a>
