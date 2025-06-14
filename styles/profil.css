@@ -12,6 +12,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
+ 
 }
 
 .favorite-title {
@@ -21,12 +22,14 @@
   margin-bottom: 20px;
   font-family: "Ranchers";
   text-transform: uppercase;
+  text-align: center;
 }
 
 .favorite-list-header {
   display: flex;
   gap: 40px;
   margin-bottom: 20px;
+  padding: 0 20px;
 }
 
 .favorite-list-header div {
@@ -34,6 +37,7 @@
   font-weight: 600;
   color: rgba(237, 22, 60, 1);
   font-size: 36px;
+  text-align: center;
 }
 
 .favorite {
@@ -41,10 +45,12 @@
   margin-bottom: 20px;
   gap: 40px;
   cursor: pointer;
+  padding: 0 20px;
+  flex-wrap: wrap;
 }
 
 .favorite div {
-  flex: 1;
+  flex: 1 1 100%;
   background-color: rgba(237, 22, 60, 0.15);
   border-radius: 12px;
   padding: 20px;
@@ -54,4 +60,81 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  margin-bottom: 10px;
+}
+
+.button {
+  font-size: 24px;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 12px;
+  background-color: rgba(237, 22, 60, 1);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .zentriert-title {
+    font-size: 40px;
+    padding: 0 10px;
+  }
+
+  .button {
+  font-size: 18px;
+  padding: 12px 24px;
+  max-width: 80%;
+  width: 100%;
+  
+}
+
+
+  .favorite-title {
+    font-size: 28px;
+    padding: 0 10px;
+  }
+
+  .favorite-list-header {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .favorite-list-header div {
+    font-size: 24px;
+  }
+
+  .favorite {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .favorite div {
+    font-size: 20px;
+  }
+
+ @media (max-width: 768px) {
+  .button-zentriert {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+
+  .button-zentriert .button {
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+  }
+}
+
+
+  .button-zentriert .button {
+    width: 100%;
+    max-width: 300px;
+  }
 }
